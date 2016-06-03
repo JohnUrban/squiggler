@@ -8,7 +8,8 @@ Ultimately, I was trying to write an open source HMM base-caller for nanopore da
 This is just a toy, prototype.
 Among other things, I never figured out how to estimate parameters such as drift, shift, scale, etc. 
 It is good at finding the lead adapter and hairpin (from old data) when present with some heuristics -- less good at working when hairpin is not present.
-For those reasons and others, it did okay (e.g 60% accuracy) on some Lambda reads -- it failed on others. 
+For those reasons and others, it did okay (e.g 55-60% accuracy) on some Lambda reads -- it failed on others. 
+It is slow.
 Other, far better, fully developed open source base-callers have come out recently.
 See NanoCall from Jared Simpson, for example: http://biorxiv.org/content/early/2016/03/28/046086
 Or deepnano: http://arxiv.org/pdf/1603.09195.pdf
