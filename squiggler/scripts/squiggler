@@ -1,0 +1,5 @@
+#!/usr/bin/python -E
+
+import squiggler.scripts
+import squiggler.squiggler_main
+squiggler.squiggler_main.main()

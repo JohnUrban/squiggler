@@ -1,0 +1,1 @@
+kmer	level_mean	level_stdv	sd_mean	sd_stdv	weight
