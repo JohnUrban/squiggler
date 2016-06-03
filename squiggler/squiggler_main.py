@@ -39,8 +39,7 @@ def run_subtool(parser, args):
         import hairpin as submodule
     elif args.command == 'trainseq':
         import sequence_selection as submodule
-    elif args.command == 'getbarcodes':
-        import getbarcodes as submodule
+
     # run the chosen submodule.
     submodule.run(parser, args)
 
@@ -260,48 +259,7 @@ def main():
     train_parser.add_argument("-v", '--verbose', type=int, default=0, help='''Get some messages during the process. Specify 0,1,2 for verbosity.''')
     train_parser.set_defaults(func=run_subtool)
 
-    
-    ##########
-    # getbarcodes
-    ##########
 
-    getbarcodes_parser = subparsers.add_parser('getbarcodes',
-                                        help='''Generate N barcodes of length L that have classification probabilities >= t. ''')
-    getbarcodes_parser.add_argument("-N", '--numbarcodes', type=int, required=True,
-                                    help='''How many barcodes should be generated? Provide integer.''')
-    getbarcodes_parser.add_argument("-L", '--barcodelength', type=int, default=20,
-                                    help='''How long should the barcodes be? Provide integer. Default = 20.''')
-    getbarcodes_parser.add_argument("-P", '--pairs', action="store_true", default=False,
-                                    help='''Return barcode pairs where not only is distance between all barcodes maximized, but distance between pairs is as well.''')
-    model_getbarcodes_parser = squig2dna_parser.add_mutually_exclusive_group(required=True)
-    model_getbarcodes_parser.add_argument('-f5', '--modelFromFast5', type=str, default=False, help='''If the desired model is in an ONT f5 file, specify this option along with path to the fast5 file.''')
-    model_getbarcodes_parser.add_argument('-tsv', '--modelFromTsv', type=str, default=False, help=''' Comma-separated paths to template and complement tsv text files that has model. The 2 files must be in template,complement order.''')
-    model_getbarcodes_parser.add_argument('-m', '--model', choices=['r7','r7.3'],  default=None, help='''Specify a model that is already on tap. Choices = r7, r7.3''')
-
-    getbarcodes_parser.set_defaults(func=run_subtool)
-
-
-
-    ##########
-    # readbarcodes
-    ##########
-
-    getbarcodes_parser = subparsers.add_parser('readbarcodes',
-                                        help='''Given a set of squiggles containing barcodes, a set of expected barcodes, an a probability cutoff - split set of squiggles into different barcode groups (or unresolved group). ''')
-    getbarcodes_parser.add_argument("-S", '--squiggles', type=str, required=True,
-                                    help='''For now, just a file with 1 set of mean values from events per line per squiggle.''')
-    getbarcodes_parser.add_argument("-B", '--barcodes', type=str, required=True,
-                                    help='''Path to fasta file of all barcodes expected.''')
-    ######  
-    getbarcodes_parser.add_argument("-P", '--pairs', actoion="store_true", default=False,
-                                    help='''Return barcode pairs where not only is distance between all barcodes maximized, but distance between pairs is as well.''')
-    model_getbarcodes_parser = squig2dna_parser.add_mutually_exclusive_group(required=True)
-    model_getbarcodes_parser.add_argument('-f5', '--modelFromFast5', type=str, default=False, help='''If the desired model is in an ONT f5 file, specify this option along with path to the fast5 file.''')
-    model_getbarcodes_parser.add_argument('-tsv', '--modelFromTsv', type=str, default=False, help=''' Comma-separated paths to template and complement tsv text files that has model. The 2 files must be in template,complement order.''')
-    model_getbarcodes_parser.add_argument('-m', '--model', choices=['r7','r7.3'],  default=None, help='''Specify a model that is already on tap. Choices = r7, r7.3''')
-
-    getbarcodes_parser.set_defaults(func=run_subtool)
- 
     ##########
     # toyhmm
     ##########
