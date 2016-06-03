@@ -16,6 +16,8 @@ Also, the code became very messy as I hacked away at it.
 I may try to clean it up.
 Peruse at your own risk.
 
+I may merge salvageable bits of squiggler as well as poreminion into an updated set of tools I have worked on more recently.
+
 Requirements
 ==========
 - stuff
