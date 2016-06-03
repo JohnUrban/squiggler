@@ -2,7 +2,7 @@ squiggler
 ==========
 Tools for analyzing Oxford Nanopore minION data in squiggle space.
 
-I worked on these tools in Dec 2014 through early 2015 -- prior to and while I developed poreminion in parallel.
+I worked on these tools in Dec 2014 through early 2015 -- while I developed poreminion in parallel.
 However, my interest changed direction for a while.
 Ultimately, I was trying to write an open source HMM base-caller for nanopore data, but we no longer thought we needed our own base-caller for the project I was developing it for.
 This is just a toy, prototype.
